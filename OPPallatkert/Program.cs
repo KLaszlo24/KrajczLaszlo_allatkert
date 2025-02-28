@@ -4,7 +4,9 @@
 	{
 		static void Main(string[] args)
 		{
-			
+			Allatkert allatkert = new Allatkert();
+			allatkert.Beolvasas();
+			allatkert.Szamok();
 		}
 	}
 }

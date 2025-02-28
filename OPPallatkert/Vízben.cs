@@ -12,9 +12,9 @@ namespace OPPallatkert
 		int sebesseg;
 		string nev;
 		string nem;
-		string eletkor;
+		int eletkor;
 
-		public Vízben(int sebesseg, string nev, string nem, string eletkor)
+		public Vízben(int sebesseg, string nev, string nem, int eletkor)
 		{
 			this.sebesseg = sebesseg;
 			this.nev = nev;
@@ -25,7 +25,7 @@ namespace OPPallatkert
 		public int Sebesseg { get => sebesseg; set => sebesseg = value; }
 		public string Nev { get => nev; set => nev = value; }
 		public string Nem { get => nem; set => nem = value; }
-		public string Eletkor { get => eletkor; set => eletkor = value; }
+		public int Eletkor { get => eletkor; set => eletkor = value; }
 	}
 
 

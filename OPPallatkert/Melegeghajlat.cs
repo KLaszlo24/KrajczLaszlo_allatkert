@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace OPPallatkert
 {
-	internal class Mediterrán
+	internal class Melegeghajlat
 	{
-		int sebesseg;
+		int sebeseeg;
 		string nev;
 		string nem;
 		int eletkor;
 
-		public Mediterrán(int sebesseg, string nev, string nem, int eletkor)
+		public Melegeghajlat(int sebeseeg, string nev, string nem, int eletkor)
 		{
-			this.sebesseg = sebesseg;
+			this.sebeseeg = sebeseeg;
 			this.nev = nev;
 			this.nem = nem;
 			this.eletkor = eletkor;
 		}
 
-		public int Sebesseg { get => sebesseg; set => sebesseg = value; }
+		public int Sebeseeg { get => sebeseeg; set => sebeseeg = value; }
 		public string Nev { get => nev; set => nev = value; }
 		public string Nem { get => nem; set => nem = value; }
 		public int Eletkor { get => eletkor; set => eletkor = value; }

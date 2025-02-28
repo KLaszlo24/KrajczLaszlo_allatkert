@@ -1,0 +1,32 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OPPallatkert
+{
+	internal class Vízben
+	{
+		int sebesseg;
+		string nev;
+		string nem;
+		string eletkor;
+
+		public Vízben(int sebesseg, string nev, string nem, string eletkor)
+		{
+			this.sebesseg = sebesseg;
+			this.nev = nev;
+			this.nem = nem;
+			this.eletkor = eletkor;
+		}
+
+		public int Sebesseg { get => sebesseg; set => sebesseg = value; }
+		public string Nev { get => nev; set => nev = value; }
+		public string Nem { get => nem; set => nem = value; }
+		public string Eletkor { get => eletkor; set => eletkor = value; }
+	}
+
+
+}

@@ -6,7 +6,13 @@
 		{
 			Allatkert allatkert = new Allatkert();
 			allatkert.Beolvasas();
-			allatkert.Szamok();
-		}
+			allatkert.Verseny();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("Az állatkert telítettsége:");
+            Console.WriteLine("megtelt: piros \nmaradék hely: zöld");
+           
+            allatkert.Szamok();
+        }
 	}
 }

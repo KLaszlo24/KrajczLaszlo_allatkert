@@ -28,7 +28,7 @@ namespace OPPallatkert
 			hidegallat.Add(new Szárazföldi_hideg_éghajlatban(2, "delfin", "hím", 4));
 			mediterranallat.Add(new Mediterrán(4, "bölény", "nőstény", 5));
 			melegallat.Add(new Melegeghajlat(14, "gepárd", "nőstény", 7));
-			tropusiallat.Add(new Trópusi(8, "majom", "hím", 18));
+			tropusiallat.Add(new Trópusi(13, "majom", "hím", 18));
 		}
 		
 		public void Szamok()
@@ -58,13 +58,13 @@ namespace OPPallatkert
 			{
 				if (i < nagysag)
 				{
-                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.BackgroundColor = ConsoleColor.Red;
                     Console.Write(" ");
                 }
 				else
 				{
           
-					Console.BackgroundColor= ConsoleColor.Red;
+					Console.BackgroundColor= ConsoleColor.Green;
                     Console.Write(" ");
                 }
 				Console.ResetColor();
@@ -74,53 +74,71 @@ namespace OPPallatkert
 			Console.WriteLine($"Kapacitás: {allatkertnagysag} / telítettség: {nagysag}");
         }
 
-		public void Verseny()
-		{
-			List<string> nev = new List<string>();
-			List<int> sebesseg = new List<int>();
+        public void Verseny()
+        {
+            List<string> nev = new List<string>();
+            List<int> sebesseg = new List<int>();
 
-			for (int i = 0; i < viziallat.Count; i++)
+            foreach (var allat in viziallat)
+            {
+                nev.Add(allat.Nev);
+                sebesseg.Add(allat.Sebesseg);
+            }
+            foreach (var allat in hidegallat)
+            {
+                nev.Add(allat.Nev);
+                sebesseg.Add(allat.Sebesseg);
+            }
+            foreach (var allat in mediterranallat)
+            {
+                nev.Add(allat.Nev);
+                sebesseg.Add(allat.Sebesseg);
+            }
+            foreach (var allat in melegallat)
+            {
+                nev.Add(allat.Nev);
+                sebesseg.Add(allat.Sebeseeg);
+            }
+            foreach (var allat in tropusiallat)
+            {
+                nev.Add(allat.Nev);
+                sebesseg.Add(allat.Sebesseg);
+            }
+
+            int[] poziciok = new int[nev.Count];
+            
+			Console.WriteLine("Az állat verseny elindul!\n");
+			Thread.Sleep(1500);
+
+			bool versenyMegy = true;
+			Random rnd=new Random();
+
+			while(versenyMegy)
 			{
-				nev.Add(viziallat[1].Nev);
-			}
-			for (int i = 0; i < hidegallat.Count; i++)
-			{
-				nev.Add(hidegallat[1].Nev);
-			}
-			for (int i = 0; i < mediterranallat.Count; i++)
-			{
-				nev.Add(mediterranallat[1].Nev);
-			}
-			for (int i = 0; i < melegallat.Count; i++)
-			{
-				nev.Add(melegallat[1].Nev);
-			}
-			for (int i = 0; i < tropusiallat.Count; i++)
-			{
-				nev.Add(tropusiallat[1].Nev);
+				Console.Clear();
+
+				for (int i = 0; i < nev.Count; i++)
+				{
+					poziciok[i] += rnd.Next(1, sebesseg[i]);
+
+                    Console.SetCursorPosition(poziciok[i], i);
+                    Console.WriteLine(nev[i]);
+                }
+				foreach(var vegpoz in poziciok)
+				{
+					if (vegpoz >= 50)
+					{
+						versenyMegy = false;
+						int maxPoz = poziciok.Max();
+                        int nyertesIndex = Array.IndexOf(poziciok, maxPoz);
+						Console.WriteLine($"\nA nyertes: {nev[nyertesIndex]}");
+						return;
+                    }
+				}
+				Thread.Sleep(150);
 			}
 
-			for (int i = 0; i < viziallat.Count; i++)
-			{
-				sebesseg.Add(viziallat[1].Sebesseg);
-			}
-			for (int i = 0; i < hidegallat.Count; i++)
-			{
-				sebesseg.Add(hidegallat[1].Sebesseg);
-			}
-			for (int i = 0; i < mediterranallat.Count; i++)
-			{
-				sebesseg.Add(mediterranallat[1].Sebesseg);
-			}
-			for (int i = 0; i < melegallat.Count; i++)
-			{
-				sebesseg.Add(melegallat[1].Sebeseeg);
-			}
-			for (int i = 0; i < tropusiallat.Count; i++)
-			{
-				sebesseg.Add(tropusiallat[1].Sebesseg);
-			}
-
-		}
-	}
+        }
+    }
 }
+
